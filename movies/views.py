@@ -4,7 +4,7 @@ from movies.models import Movie
 from movies.serializers import MovieSerializer
 
 class MovieViewSet(viewsets.ModelViewSet):
-    queryset = Movie.objects.all()
+    queryset = Movie.objects.all().order_by('-id')
     serializer_class = MovieSerializer
     permission_classes = [IsAuthenticated]
     filter_backends = [filters.SearchFilter]
